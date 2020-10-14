@@ -1,4 +1,4 @@
-//% color="#FFAAFF" weight=2 0 icon="\uf11c" block="呼噜猫遥控器通信确认"
+//% color="#008FFF" weight=2 0 icon="\uf11c" block="呼噜猫遥控器通信确认"
 namespace TuoYuCar_connection {
     /**
      * 调用此来建立与遥控器的通信,通信建立成功则返回55
@@ -24,7 +24,7 @@ namespace TuoYuCar_connection {
     }
 }
 
-//% color="#FFAAFF" weight=2 0 icon="\uf11c" block="呼噜猫遥控器传感器类"
+//% color="#008FFF" weight=2 0 icon="\uf11c" block="呼噜猫遥控器传感器类"
 namespace TuoYuCar {
 
     export enum ultrasonicState{
