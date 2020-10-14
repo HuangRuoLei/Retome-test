@@ -143,13 +143,7 @@ namespace TuoYuCar {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Gas():boolean {
         let temp: boolean = false;
-        let temp1;
-        basic.pause(10);
-        temp1=pins.i2cReadNumber(74, NumberFormat.Int8LE);
-        if(temp1==1)
-            temp=true;
-        else
-            temp=false;
+        temp = pins.digitalReadPin(DigitalPin.P3);
         return temp;
     }
 }
