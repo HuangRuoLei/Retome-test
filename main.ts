@@ -101,9 +101,15 @@ namespace TuoYuCar {
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Bodycheck():boolean {
-        let temp1: boolean = false;
-        temp1 = pins.digitalReadPin(DigitalPin.P3);
-        return temp1;
+        let temp: boolean = false;
+        let temp1;
+        basic.pause(10);
+        temp1=pins.i2cReadNumber(72, NumberFormat.Int8LE);
+        if(temp1==1)
+            temp=true;
+        else
+            temp=false;
+        return temp;
     }
     /**
      * 选择以打开遥控器水滴传感器功能
