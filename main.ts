@@ -149,6 +149,30 @@ namespace HuLuMaoRemote {
         }
         return temp;
     }
+    /**
+     * 选择以打开心率传感器，用手指按住即可测量心率
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_heart block="当检测到心跳时"
+    //% weight=95
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function heart():boolean {
+        let temp: boolean = false;
+        let temp1;
+        temp1 = pins.digitalReadPin(DigitalPin.P3);
+        temp1 = (temp1 * 2.89) / 1000;
+        if (temp1 > 2) {
+            temp = true;
+        }
+        else {
+            temp = false;
+        }
+        return temp;
+    }
+
+
 }
 //% color="#35D482" weight=98 icon="\uf11b" block="呼噜猫遥控器音乐类"
 namespace HuLuMaoRemote_music {
