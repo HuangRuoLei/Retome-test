@@ -102,13 +102,7 @@ namespace TuoYuCar {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Bodycheck():boolean {
         let temp: boolean = false;
-        let temp1;
-        basic.pause(10);
-        temp1=pins.i2cReadNumber(72, NumberFormat.Int8LE);
-        if(temp1==1)
-            temp=true;
-        else
-            temp=false;
+        temp = pins.digitalReadPin(DigitalPin.P3);
         return temp;
     }
     /**
@@ -122,7 +116,13 @@ namespace TuoYuCar {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Rain():boolean {
         let temp: boolean = false;
-        temp = pins.digitalReadPin(DigitalPin.P3);
+        let temp1;
+        basic.pause(10);
+        temp1=pins.i2cReadNumber(73, NumberFormat.Int8LE);
+        if(temp1==1)
+            temp=true;
+        else
+            temp=false;
         return temp;
     }
 
