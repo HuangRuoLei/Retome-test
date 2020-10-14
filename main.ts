@@ -102,7 +102,7 @@ namespace TuoYuCar {
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Bodycheck():boolean {
-        let temp;
+        let temp: boolean = false;
         temp = pins.digitalReadPin(DigitalPin.P3);
         return temp;
     }
@@ -116,7 +116,7 @@ namespace TuoYuCar {
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Rain():boolean {
-        let temp;
+        let temp: boolean = false;
         temp = pins.digitalReadPin(DigitalPin.P3);
         return temp;
     }
@@ -128,10 +128,10 @@ namespace TuoYuCar {
     //% blockId=TuoYuCar_Gas block="当气体传感器检测到目标气体时"
     //% weight=96
     //% blockGap=10
-    //% color="#006400"
+    //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Gas():boolean {
-        let temp;
+        let temp: boolean = false;
         temp = pins.digitalReadPin(DigitalPin.P3);
         return temp;
     }
