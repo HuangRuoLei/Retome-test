@@ -161,7 +161,7 @@ namespace HuLuMaoRemote {
     export function heart():boolean {
         let temp: boolean = false;
         let temp1;
-        temp1 = pins.digitalReadPin(DigitalPin.P3);
+        temp1 = pins.analogReadPin(AnalogPin.P3);
         temp1 = (temp1 * 2.89) / 1000;
         if (temp1 > 2) {
             temp = true;
