@@ -1,21 +1,15 @@
 {
-    "name": "Tinybit",
-    "version": "1.0.1",
-    "description": "Extension for YahBoom Tiny:bit V1.0.1",
+    "name": "HuLuMao-MicroBitCar",
+    "version": "1.0.0",
+    "description": "This is HuLuMao MicroBit_Retome V1.0.0",
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "neopixel": "github:lzty634158/pxt-neopixel",
-        "Mbit_IR":  "github:lzty634158/yahboom_mbit_IR"
-	
-
+        "radio": "*"
     },
     "files": [
         "README.md",
-        "main.ts",
-        "_locales/zh-cn/Tinybit-strings.json",
-        "_locales/zh-tw/Tinybit-strings.json"
-
+        "main.ts"
     ],
     "testFiles": [
         "test.ts"

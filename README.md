@@ -1,6 +1,6 @@
-# Tiny:bit
+# mbit
 
-Extension for Yahboom Tiny:bit V1.1
+This is HuLuMao Retome V1.0.0
 
 ## License
 
