@@ -1,10 +1,10 @@
 //% color="#35D482" weight=2 0 icon="\uf11b" block="呼噜猫遥控器通信确认"
-namespace TuoYuCar_connection {
+namespace HuLuMaoRemote_connection {
     /**
      * 调用此来建立与遥控器的通信
      * @param index
     */
-    //% blockId=TuoYuCar_connection_con block="建立与遥控器的通信"
+    //% blockId=HuLuMaoRemote_connection_con block="建立与遥控器的通信"
     //% weight=100
     //% blockGap=10
     //% color="#35D482"
@@ -25,7 +25,7 @@ namespace TuoYuCar_connection {
 }
 
 //% color="#35D482" weight=2 0 icon="\uf11b" block="呼噜猫遥控器传感器类"
-namespace TuoYuCar {
+namespace HuLuMaoRemote {
 
     export enum ultrasonicState{
         //% blockId="OFF" block="关闭"
@@ -63,7 +63,7 @@ namespace TuoYuCar {
      * 选择以打开或关闭遥控器超声波测量距离的功能（有效距离2cm~200cm）
      * @param index
     */
-    //% blockId=TuoYuCar_Chao_Sheng_Bo block="超声波测距系统|%index"
+    //% blockId=HuLuMaoRemote_Chao_Sheng_Bo block="超声波测距系统|%index"
     //% weight=110
     //% blockGap=10
     //% color="#35D482"
@@ -80,7 +80,7 @@ namespace TuoYuCar {
      * 调用此将返回超声波的所测到的距离（有效距离2cm~200cm）
      * @param index
     */
-    //% blockId=TuoYuCar_Read_Chao_Sheng_Bo block="读取超声波测到的距离(cm)"
+    //% blockId=HuLuMaoRemote_Read_Chao_Sheng_Bo block="读取超声波测到的距离(cm)"
     //% weight=109
     //% blockGap=10
     //% color="#35D482"
@@ -95,7 +95,7 @@ namespace TuoYuCar {
      * 选择以打开遥控器人体红外传感器功能
      * @param index
     */
-    //% blockId=TuoYuCar_Bodycheck block="当人体传感器检测到人体或者活物时"
+    //% blockId=HuLuMaoRemote_Bodycheck block="当人体传感器检测到人体或者活物时"
     //% weight=98
     //% blockGap=10
     //% color="#35D482"
@@ -114,7 +114,7 @@ namespace TuoYuCar {
      * 选择以打开遥控器水滴传感器功能
      * @param index
     */
-    //% blockId=TuoYuCar_Rain block="当水滴传感器检测到水滴时"
+    //% blockId=HuLuMaoRemote_Rain block="当水滴传感器检测到水滴时"
     //% weight=97
     //% blockGap=10
     //% color="#35D482"
@@ -134,7 +134,7 @@ namespace TuoYuCar {
      * 选择以打开遥控器气体传感器功能，可检测一氧化碳,烟雾，可燃气体等
      * @param index
     */
-    //% blockId=TuoYuCar_Gas block="当气体传感器检测到目标气体时"
+    //% blockId=HuLuMaoRemote_Gas block="当气体传感器检测到目标气体时"
     //% weight=96
     //% blockGap=10
     //% color="#35D482"
@@ -151,7 +151,7 @@ namespace TuoYuCar {
     }
 }
 //% color="#35D482" weight=2 0 icon="\uf11b" block="呼噜猫遥控器音乐类"
-namespace TuoYuCar_music {
+namespace HuLuMaoRemote_music {
 
     export enum yingdiao{
         //% blockId="low" block="低音"
@@ -165,7 +165,7 @@ namespace TuoYuCar_music {
      * 打开遥控器的七音符
      * @param index
     */
-    //% blockId=TuoYuCar_music_music block="将1到7按键设置为七音符（哆来咪发索拉西）,音调为|%index"
+    //% blockId=HuLuMaoRemote_music_music block="将1到7按键设置为七音符（哆来咪发索拉西）,音调为|%index"
     //% weight=100
     //% blockGap=10
     //% color="#35D482"
