@@ -1,4 +1,4 @@
-//% color="#35D482" weight=2 0 icon="\uf11b" block="呼噜猫遥控器通信确认"
+//% color="#35D482" weight=100 icon="\uf11b" block="呼噜猫遥控器通信确认"
 namespace HuLuMaoRemote_connection {
     /**
      * 调用此来建立与遥控器的通信
@@ -24,7 +24,7 @@ namespace HuLuMaoRemote_connection {
     }
 }
 
-//% color="#35D482" weight=2 0 icon="\uf11b" block="呼噜猫遥控器传感器类"
+//% color="#35D482" weight=99 icon="\uf11b" block="呼噜猫遥控器传感器类"
 namespace HuLuMaoRemote {
 
     export enum ultrasonicState{
@@ -150,7 +150,7 @@ namespace HuLuMaoRemote {
         return temp;
     }
 }
-//% color="#35D482" weight=2 0 icon="\uf11b" block="呼噜猫遥控器音乐类"
+//% color="#35D482" weight=98 icon="\uf11b" block="呼噜猫遥控器音乐类"
 namespace HuLuMaoRemote_music {
 
     export enum yingdiao{
