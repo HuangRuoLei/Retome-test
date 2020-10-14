@@ -1,7 +1,7 @@
 //% color="#000000" weight=2 0 icon="\uf11b" block="呼噜猫遥控器通信确认"
 namespace TuoYuCar_connection {
     /**
-     * 调用此来建立与遥控器的通信,通信建立成功则返回55
+     * 调用此来建立与遥控器的通信
      * @param index
     */
     //% blockId=TuoYuCar_connection_con block="建立与遥控器的通信"
@@ -132,5 +132,33 @@ namespace TuoYuCar {
         return temp;
     }
 }
+//% color="#000000" weight=2 0 icon="\uf11b" block="呼噜猫遥控器音乐类"
+namespace TuoYuCar_music {
 
+    export enum yingdiao{
+        //% blockId="low" block="低音"
+        low = 1,
+        //% blockId="mid" block="中音"
+        mid,
+        //% blockId="high" block="高音"
+        high
+    }
+    /**
+     * 调用此来建立与遥控器的通信,通信建立成功则返回55
+     * @param index
+    */
+    //% blockId=TuoYuCar_music_music block="将1到7按键设置为七音符,音调为|%index"
+    //% weight=100
+    //% blockGap=10
+    //% color="#000000"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function music(index:yingdiao): void {
+        basic.pause(10);
+        switch (index) {
+            case yingdiao.low: pins.i2cWriteNumber(64, 1, NumberFormat.UInt8LE); break;
+            case yingdiao.mid: pins.i2cWriteNumber(64, 2, NumberFormat.UInt8LE); break;
+            case yingdiao.high: pins.i2cWriteNumber(64, 3, NumberFormat.UInt8LE); break;
+        }   
+    }
+}
 
