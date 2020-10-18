@@ -193,6 +193,21 @@ namespace HuLuMaoRemote {
         return temp;
     }
 
+     /**
+     * 调用此将返回光敏电阻返回的亮度值（0代表最暗，333代表最亮）
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Photoresistor block="读取光敏电阻测到的亮度(0代表最暗，333代表最亮)"
+    //% weight=94
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Photoresistor(): number {
+        let data;
+        data=pins.analogReadPin(AnalogPin.P2);
+        data=data*3.18/10;
+        return data;
+    }
 
 }
 //% color="#35D482" weight=28 icon="\uf11b" block="呼噜猫遥控器音乐类"
