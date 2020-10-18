@@ -205,7 +205,8 @@ namespace HuLuMaoRemote {
     export function Photoresistor(): number {
         let data;
         data=pins.analogReadPin(AnalogPin.P2);
-        data=data*3.18/10;
+        data=data*3.18%10;
+        Math.round(data);
         return data;
     }
 
