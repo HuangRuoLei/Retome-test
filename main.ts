@@ -1,10 +1,10 @@
-//% color="#35D482" weight=100 icon="\uf11b" block="呼噜猫遥控器通信确认"
+//% color="#35D482" weight=30 icon="\uf11b" block="呼噜猫遥控器通信确认"
 namespace HuLuMaoRemote_connection {
     /**
-     * 调用此来建立与遥控器的通信
+     * 调用此来建立MicroBit与遥控器的通信
      * @param index
     */
-    //% blockId=HuLuMaoRemote_connection_con block="建立与遥控器的通信"
+    //% blockId=HuLuMaoRemote_connection_con block="建立 MicroBit 与遥控器的通信"
     //% weight=100
     //% blockGap=10
     //% color="#35D482"
@@ -22,9 +22,30 @@ namespace HuLuMaoRemote_connection {
             }
         }
     }
+
+    /**
+     * 调用此来建立遥控器与小车的通信,并设置一个通信密码(最大为255)
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_connection_con1 block="建立遥控器与小车的通信,通信密码为|%index"
+    //% weight=100
+    //% blockGap=10
+    //% index.min=0 index.max=255
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function con1(index:number): void {
+        let data=0;
+        while(data!=0xAA){
+            basic.pause(10);
+            pins.i2cWriteNumber(75, index, NumberFormat.UInt8LE);
+            basic.pause(10);
+            data=length=pins.i2cReadNumber(66, NumberFormat.Int8LE);
+        }
+        
+    }
 }
 
-//% color="#35D482" weight=99 icon="\uf11b" block="呼噜猫遥控器传感器类"
+//% color="#35D482" weight=29 icon="\uf11b" block="呼噜猫遥控器传感器类"
 namespace HuLuMaoRemote {
 
     export enum ultrasonicState{
@@ -174,7 +195,7 @@ namespace HuLuMaoRemote {
 
 
 }
-//% color="#35D482" weight=98 icon="\uf11b" block="呼噜猫遥控器音乐类"
+//% color="#35D482" weight=28 icon="\uf11b" block="呼噜猫遥控器音乐类"
 namespace HuLuMaoRemote_music {
 
     export enum yingdiao{
