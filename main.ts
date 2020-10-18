@@ -206,10 +206,25 @@ namespace HuLuMaoRemote {
         let data;
         data=pins.analogReadPin(AnalogPin.P2);
         data=data*3.18%10;
-        Math.round(data);
+        data=Math.ceil(data);
         return data;
     }
-
+    /**
+     * 调用此将返回热敏电阻返回的温度值（0代表最冷，333代表最热）
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Thermistor block="读取热敏电阻测到的热度(0代表最冷，333代表最热)"
+    //% weight=93
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Thermistor(): number {
+        let data;
+        data=pins.analogReadPin(AnalogPin.P2);
+        data=data*3.18%10;
+        data=Math.floor(data);
+        return data;
+    }
 }
 //% color="#35D482" weight=28 icon="\uf11b" block="呼噜猫遥控器音乐类"
 namespace HuLuMaoRemote_music {
