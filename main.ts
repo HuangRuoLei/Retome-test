@@ -206,8 +206,7 @@ namespace HuLuMaoRemote {
         let data;
         data=pins.analogReadPin(AnalogPin.P2);
         data=data*3.18%10;
-        data=Math.ceil(data);
-        return data;
+        return Math.round(data);
     }
     /**
      * 调用此将返回热敏电阻返回的温度值（0代表最冷，333代表最热）
@@ -222,7 +221,7 @@ namespace HuLuMaoRemote {
         let data;
         data=pins.analogReadPin(AnalogPin.P2);
         data=data*3.18%10;
-        data=Math.floor(data);
+        data=Math.round(data);
         return data;
     }
 }
