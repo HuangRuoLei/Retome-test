@@ -39,7 +39,7 @@ namespace HuLuMaoRemote_connection {
             basic.pause(10);
             pins.i2cWriteNumber(75, index, NumberFormat.UInt8LE);
             basic.pause(10);
-            data=length=pins.i2cReadNumber(66, NumberFormat.Int8LE);
+            data=pins.i2cReadNumber(75, NumberFormat.Int8LE);
         }
         
     }
