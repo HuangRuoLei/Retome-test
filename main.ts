@@ -35,9 +35,10 @@ namespace HuLuMaoRemote_connection {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function con1(index:number): void {
         let data=0;
-        while(data!=0xAA){
-            basic.pause(10);
+        for(let i=0;i<8;i++){
             pins.i2cWriteNumber(75, index, NumberFormat.UInt8LE);
+        }
+        while(data!=2){
             basic.pause(10);
             data=pins.i2cReadNumber(75, NumberFormat.Int8LE);
         }
