@@ -206,7 +206,7 @@ namespace HuLuMaoRemote {
         let data;
         data=pins.analogReadPin(AnalogPin.P2);
         data=data*3.18%10;
-        return Math.round(data);
+        return Math.floor(data);
     }
     /**
      * 调用此将返回热敏电阻返回的温度值（0代表最冷，333代表最热）
@@ -221,8 +221,7 @@ namespace HuLuMaoRemote {
         let data;
         data=pins.analogReadPin(AnalogPin.P2);
         data=data*3.18%10;
-        data=Math.round(data);
-        return data;
+        return Math.floor(data);
     }
 }
 //% color="#35D482" weight=28 icon="\uf11b" block="呼噜猫遥控器音乐类"
