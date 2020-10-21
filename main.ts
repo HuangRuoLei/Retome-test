@@ -193,13 +193,32 @@ namespace HuLuMaoRemote {
         }
         return temp;
     }
+    /**
+     * 选择以打开声音传感器功能
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Voice block="当声音传感器检测到有声音产生时"
+    //% weight=94
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Voice():boolean {
+        let temp: boolean = false;
+        if (pins.digitalReadPin(DigitalPin.P3) == 0) {
+            temp = true;
+        }
+        else {
+            temp = false;
+        }
+        return temp;
+    }
 
      /**
      * 调用此将返回光敏电阻返回的亮度值（0代表最暗，333代表最亮）
      * @param index
     */
     //% blockId=HuLuMaoRemote_Photoresistor block="读取光敏电阻测到的亮度(0代表最暗，333代表最亮)"
-    //% weight=94
+    //% weight=80
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
@@ -214,7 +233,7 @@ namespace HuLuMaoRemote {
      * @param index
     */
     //% blockId=HuLuMaoRemote_Thermistor block="读取热敏电阻测到的热度(0代表最冷，333代表最热)"
-    //% weight=93
+    //% weight=79
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
