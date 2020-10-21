@@ -255,6 +255,32 @@ namespace HuLuMaoRemote_music {
         //% blockId="high" block="高音"
         high
     }
+    export enum key_number{
+        //% blockId="_1" block="1"
+        _1=1,
+        //% blockId="_2" block="2"
+        _2,
+        //% blockId="_3" block="3"
+        _3,
+        //% blockId="_4" block="4"
+        _4,
+        //% blockId="_5" block="5"
+        _5,
+        //% blockId="_6" block="6"
+        _6,
+        //% blockId="_7" block="7"
+        _7,
+        //% blockId="_8" block="8"
+        _8,
+        //% blockId="_9" block="9"
+        _9,
+        //% blockId="_10" block="10"
+        _10,
+        //% blockId="_F1" block="11"
+        _F1,
+        //% blockId="_F2" block="12"
+        _F2
+    }
     /**
      * 打开遥控器的七音符
      * @param index
@@ -271,6 +297,29 @@ namespace HuLuMaoRemote_music {
             case yingdiao.mid: pins.i2cWriteNumber(64, 2, NumberFormat.UInt8LE); break;
             case yingdiao.high: pins.i2cWriteNumber(64, 3, NumberFormat.UInt8LE); break;
         }   
+    }
+
+     /**
+     * 打开遥控器的七音符
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_music_Key block="当按键|%index被按下"
+    //% weight=100
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Key(index:key_number): boolean {
+        let temp: boolean = false;
+        let num;
+        basic.pause(10);
+        num=pins.i2cReadNumber(67, NumberFormat.Int8LE);
+        if(num==index){
+            temp=true;
+        }
+        else{
+            temp=false;
+        }
+        return temp;
     }
 }
 
