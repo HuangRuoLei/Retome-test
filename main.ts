@@ -255,6 +255,18 @@ namespace HuLuMaoRemote_music {
         //% blockId="high" block="高音"
         high
     }
+    export enum Music_name{
+        //% blockId="MaiBaoGe" block="卖报歌"
+        MaiBaoGe=1,
+        //% blockId="DaDianHua" block="打电话"
+        DaDianHua,
+        //% blockId="LiangZhiLaoHu" block="两只老虎"
+        LiangZhiLaoHu,
+        //% blockId="XinNianHao" block="新年好"
+        XinNianHao,
+        //% blockId="IfYouHere" block="名侦探柯南主题曲-如果有你在"
+        IfYouHere
+    }
     export enum key_number{
         //% blockId="_1" block="1"
         _1=1,
@@ -276,9 +288,9 @@ namespace HuLuMaoRemote_music {
         _9,
         //% blockId="_10" block="10"
         _10,
-        //% blockId="_F1" block="11"
+        //% blockId="_F1" block="F1"
         _F1,
-        //% blockId="_F2" block="12"
+        //% blockId="_F2" block="F2"
         _F2
     }
     /**
@@ -298,13 +310,26 @@ namespace HuLuMaoRemote_music {
             case yingdiao.high: pins.i2cWriteNumber(64, 3, NumberFormat.UInt8LE); break;
         }   
     }
+    /**
+     * 播放指定歌曲
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_music_Play_music block="播放歌曲|%index"
+    //% weight=99
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Play_music(index:Music_name): void {
+        basic.pause(10);
+        pins.i2cWriteNumber(64, index, NumberFormat.UInt8LE);  
+    }
 
      /**
-     * 打开遥控器的七音符
+     * 判断按键是否按下
      * @param index
     */
     //% blockId=HuLuMaoRemote_music_Key block="当按键|%index被按下"
-    //% weight=100
+    //% weight=99
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
