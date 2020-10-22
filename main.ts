@@ -321,7 +321,7 @@ namespace HuLuMaoRemote_music {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Play_music(index:Music_name): void {
         basic.pause(10);
-        pins.i2cWriteNumber(64, index, NumberFormat.UInt8LE);  
+        pins.i2cWriteNumber(69, index, NumberFormat.UInt8LE);  
     }
 
      /**
