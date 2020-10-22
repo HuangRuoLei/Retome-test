@@ -333,7 +333,7 @@ namespace HuLuMaoRemote_music {
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function Key(index:key_number): boolean {
+    export function Key(index:key_number,body:Action): boolean {
         let temp: boolean = false;
         let num;
         basic.pause(10);
