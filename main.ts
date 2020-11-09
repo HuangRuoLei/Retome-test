@@ -15,6 +15,14 @@ namespace HuLuMaoRemote_connection {
             length=pins.i2cReadNumber(66, NumberFormat.Int8LE);
             if(length==55){
                 basic.showIcon(IconNames.Yes);
+                basic.pause(1000);
+                basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `);
                 break;
             }
             else{
@@ -28,7 +36,7 @@ namespace HuLuMaoRemote_connection {
      * @param index
     */
     //% blockId=HuLuMaoRemote_connection_con1 block="建立遥控器与小车的通信,通信密码为|%index"
-    //% weight=100
+    //% weight=99
     //% blockGap=10
     //% index.min=0 index.max=255
     //% color="#35D482"
@@ -41,8 +49,17 @@ namespace HuLuMaoRemote_connection {
         while(data!=2){
             basic.pause(10);
             data=pins.i2cReadNumber(75, NumberFormat.Int8LE);
+            basic.showIcon(IconNames.SmallSquare);
         }
-        
+        basic.showIcon(IconNames.Square);
+        basic.pause(1000);
+        basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+        `);
     }
 }
 
