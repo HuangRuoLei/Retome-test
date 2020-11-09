@@ -365,3 +365,49 @@ namespace HuLuMaoRemote_music {
     }
 }
 
+//% color="#35D482" weight=27 icon="\uf11b" block="呼噜猫遥控器控制小车类"
+namespace HuLuMaoRemote_car {
+    export enum car{
+        //% blockId="forward" block="前进"
+        forward=1,
+        //% blockId="back" block="后退"
+        back,
+        //% blockId="turn_left" block="向前左转"
+        turn_left,
+        //% blockId="turn_right" block="向前右转"
+        turn_right,
+        //% blockId="turn_back_left" block="向后左转"
+        turn_back_left,
+        //% blockId="turn_back_right" block="向后右转"
+        turn_back_right,
+        //% blockId="left_hand" block="原地左旋"
+        left_hand,
+        //% blockId="right_hand" block="原地右旋"
+        right_hand
+    }
+    /**
+     * 选择以打开或关闭小车行驶功能,速度可调
+     * @param index
+    */
+
+    //% blockId=HuLuMaoRemote_car_Car block="控制小车|%index"
+    //% weight=99
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Car(index:car):void {
+        let buf = 0;
+        basic.pause(10);
+        switch (index) {
+          case car.forward:buf=1;;break;
+          case car.back:buf=2;break;
+          case car.turn_left:buf=3;break;
+          case car.turn_right:buf=4;break;
+          case car.turn_back_left:buf=5;break;
+          case car.turn_back_right:buf=6;break;
+          case car.left_hand:buf=7;break;
+          case car.right_hand:buf=8;break;
+        }
+        pins.i2cWriteBuffer(76, buf);
+    }
+}
