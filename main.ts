@@ -346,7 +346,7 @@ namespace HuLuMaoRemote_music {
      * @param index
     */
     //% blockId=HuLuMaoRemote_music_Key block="当按键|%index被按下"
-    //% weight=99
+    //% weight=98
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
@@ -385,5 +385,28 @@ namespace HuLuMaoRemote_car {
         //% blockId="right_hand" block="原地右旋"
         right_hand
     }
-   
+    /**
+     * 选择以打开或关闭小车行驶功能,速度可调
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_car_Car_Drive block="控制小车|%index"
+    //% weight=100
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Car_Drive(index:car):void {
+        let buf = 0;
+        basic.pause(10);
+        switch (index) {
+          case car.forward:buf=1;break;
+          case car.back:buf=2;break;
+          case car.turn_left:buf=3;break;
+          case car.turn_right:buf=4;break;
+          case car.turn_back_left:buf=5;break;
+          case car.turn_back_right:buf=6;break;
+          case car.left_hand:buf=7;break;
+          case car.right_hand:buf=8;break;
+        }
+        pins.i2cWriteBuffer(76, buf);
+    }
 }
