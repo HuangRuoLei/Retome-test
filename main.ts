@@ -395,7 +395,7 @@ namespace HuLuMaoRemote_car {
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Car_Drive(index:car):void {
-        let buf = 0;
+        let buf;
         basic.pause(10);
         switch (index) {
           case car.forward:buf=1;break;
@@ -407,6 +407,6 @@ namespace HuLuMaoRemote_car {
           case car.left_hand:buf=7;break;
           case car.right_hand:buf=8;break;
         }
-        pins.i2cWriteBuffer(76, buf);
+        pins.i2cWriteNumber(76, buf, NumberFormat.UInt8LE); 
     }
 }
