@@ -445,14 +445,14 @@ namespace HuLuMaoRemote_car {
      * 选择以控制小车舵机的转动角度
      * @param index
     */
-    //% blockId=HuLuMaoRemote_car_Car_Gear block="遥控器控制小车舵机的角度为|%index °"
+    //% blockId=HuLuMaoRemote_car_Car_Gear block="遥控器控制小车舵机的角度 |%speed °"
     //% weight=99
     //% blockGap=10
-    //% index.min=0 index.max=180
+    //% speed.min=0 speed.max=180
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function Car_Gear(index:number):void {
+    export function Car_Gear(speed:number):void {
         basic.pause(10);
-        pins.i2cWriteNumber(76, index, NumberFormat.UInt8LE); 
+        pins.i2cWriteNumber(76, speed, NumberFormat.UInt8LE); 
     }
 }
