@@ -383,7 +383,9 @@ namespace HuLuMaoRemote_car {
         //% blockId="left_hand" block="原地左旋"
         left_hand,
         //% blockId="right_hand" block="原地右旋"
-        right_hand
+        right_hand,
+         //% blockId="stop" block="停止"
+         stop
     }
     /**
      * 选择以打开或关闭小车行驶功能,速度可调
@@ -406,6 +408,7 @@ namespace HuLuMaoRemote_car {
           case car.turn_back_right:buf=6;break;
           case car.left_hand:buf=7;break;
           case car.right_hand:buf=8;break;
+          case car.stop:buf=9;break;
         }
         pins.i2cWriteNumber(76, buf, NumberFormat.UInt8LE); 
     }
