@@ -38,7 +38,7 @@ namespace HuLuMaoRemote_connection {
     //% blockId=HuLuMaoRemote_connection_con1 block="建立遥控器与小车的通信,通信密码为|%index"
     //% weight=99
     //% blockGap=10
-    //% index.min=0 index.max=255
+    //% index.min=1 index.max=255
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function con1(index:number): void {
@@ -365,7 +365,7 @@ namespace HuLuMaoRemote_music {
     }
 }
 
-//% color="#35D482" weight=27 icon="\uf11b" block="呼噜猫遥控器控制小车类"
+//% color="#35D482" weight=27 icon="\uf11b" block="呼噜猫遥控器与小车通信类"
 namespace HuLuMaoRemote_car {
     export enum car{
         //% blockId="forward" block="前进"
@@ -388,10 +388,36 @@ namespace HuLuMaoRemote_car {
          stop
     }
     /**
-     * 选择以打开或关闭小车行驶功能,速度可调
+     *
      * @param index
     */
-    //% blockId=HuLuMaoRemote_car_Car_Drive block="控制小车|%index"
+    //% blockId=HuLuMaoRemote_car_Car_Remote block="接收小车发送过来的指令"
+    //% weight=102
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Car_Remote():void {
+        pins.i2cWriteNumber(77, 1, NumberFormat.UInt8LE); 
+        basic.pause(100);
+    }
+    /**
+     *
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_car_Remote_Car block="向小车发送指令"
+    //% weight=101
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Remote_Car():void {
+        pins.i2cWriteNumber(77, 2, NumberFormat.UInt8LE); 
+        basic.pause(100);
+    }
+    /**
+     * 选择以打开或关闭小车行驶功能
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_car_Car_Drive block="遥控器控制小车|%index"
     //% weight=100
     //% blockGap=10
     //% color="#35D482"
@@ -400,16 +426,17 @@ namespace HuLuMaoRemote_car {
         let buf;
         basic.pause(10);
         switch (index) {
-          case car.forward:buf=1;break;
-          case car.back:buf=2;break;
-          case car.turn_left:buf=3;break;
-          case car.turn_right:buf=4;break;
-          case car.turn_back_left:buf=5;break;
-          case car.turn_back_right:buf=6;break;
-          case car.left_hand:buf=7;break;
-          case car.right_hand:buf=8;break;
-          case car.stop:buf=9;break;
+          case car.forward:buf=190;break;
+          case car.back:buf=191;break;
+          case car.turn_left:buf=192;break;
+          case car.turn_right:buf=193;break;
+          case car.turn_back_left:buf=194;break;
+          case car.turn_back_right:buf=195;break;
+          case car.left_hand:buf=196;break;
+          case car.right_hand:buf=197;break;
+          case car.stop:buf=198;break;
         }
         pins.i2cWriteNumber(76, buf, NumberFormat.UInt8LE); 
     }
+
 }
