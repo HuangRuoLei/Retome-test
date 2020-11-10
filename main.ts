@@ -397,8 +397,9 @@ namespace HuLuMaoRemote_car {
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Car_Remote():void {
-        pins.i2cWriteNumber(77, 1, NumberFormat.UInt8LE); 
         basic.pause(10);
+        pins.i2cWriteNumber(77, 1, NumberFormat.UInt8LE); 
+        
     }
     /**
      *
@@ -410,8 +411,9 @@ namespace HuLuMaoRemote_car {
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Remote_Car():void {
-        pins.i2cWriteNumber(77, 2, NumberFormat.UInt8LE); 
         basic.pause(10);
+        pins.i2cWriteNumber(77, 2, NumberFormat.UInt8LE); 
+        
     }
     /**
      * 选择以打开或关闭小车行驶功能
