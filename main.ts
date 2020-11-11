@@ -388,7 +388,7 @@ namespace HuLuMaoRemote_car {
          stop
     }
     /**
-     *
+     *接收小车发送过来的指令 和 向小车发送指令 不可在同一程序中使用
      * @param index
     */
     //% blockId=HuLuMaoRemote_car_Car_Remote block="接收小车发送过来的指令"
@@ -402,7 +402,7 @@ namespace HuLuMaoRemote_car {
         
     }
     /**
-     *
+     *向小车发送指令 和 接收小车发送过来的指令 不可在同一程序中使用
      * @param index
     */
     //% blockId=HuLuMaoRemote_car_Remote_Car block="向小车发送指令"
@@ -455,5 +455,20 @@ namespace HuLuMaoRemote_car {
         basic.pause(10);
         speed+=1;
         pins.i2cWriteNumber(76, speed, NumberFormat.UInt8LE); 
+    }
+     /**
+     * 调用此将接收小车超声波的所测到的距离（有效距离2cm~200cm）
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_car_Car_Remote_CM block="接收小车超声波测到的距离(cm)"
+    //% weight=98
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Car_Remote_CM(): number {
+        let length;
+        basic.pause(10);
+        length=pins.i2cReadNumber(76, NumberFormat.Int8LE);
+        return length;
     }
 }
