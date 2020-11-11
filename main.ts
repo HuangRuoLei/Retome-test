@@ -453,6 +453,7 @@ namespace HuLuMaoRemote_car {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Car_Gear(speed:number):void {
         basic.pause(10);
+        speed+=1;
         pins.i2cWriteNumber(76, speed, NumberFormat.UInt8LE); 
     }
 }
