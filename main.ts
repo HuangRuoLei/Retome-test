@@ -328,7 +328,7 @@ namespace HuLuMaoRemote_music {
         }   
     }
     /**
-     * 播放指定歌曲
+     * 播放指定歌曲，在歌曲播放结束之前，无法进行其它操作
      * @param index
     */
     //% blockId=HuLuMaoRemote_music_Play_music block="播放歌曲|%index"
@@ -342,7 +342,7 @@ namespace HuLuMaoRemote_music {
     }
 
      /**
-     * 判断按键是否按下
+     * 判断指定按键是否按下
      * @param index
     */
     //% blockId=HuLuMaoRemote_music_Key block="当按键|%index被按下"
@@ -388,7 +388,7 @@ namespace HuLuMaoRemote_car {
          stop
     }
     /**
-     *接收小车发送过来的指令 和 向小车发送指令 不可在同一程序中使用
+     *"接收小车发送过来的指令" 和 "向小车发送指令" 不可在同一程序中使用
      * @param index
     */
     //% blockId=HuLuMaoRemote_car_Car_Remote block="接收小车发送过来的指令"
@@ -402,7 +402,7 @@ namespace HuLuMaoRemote_car {
         
     }
     /**
-     *向小车发送指令 和 接收小车发送过来的指令 不可在同一程序中使用
+     *"向小车发送指令" 和 "接收小车发送过来的指令" 不可在同一程序中使用
      * @param index
     */
     //% blockId=HuLuMaoRemote_car_Remote_Car block="向小车发送指令"
@@ -445,7 +445,7 @@ namespace HuLuMaoRemote_car {
      * 选择以控制小车舵机的转动角度
      * @param index
     */
-    //% blockId=HuLuMaoRemote_car_Car_Gear block="遥控器控制小车舵机的角度 |%speed °"
+    //% blockId=HuLuMaoRemote_car_Car_Gear block="遥控器控制小车舵机的角度为 |%speed °"
     //% weight=99
     //% blockGap=10
     //% speed.min=0 speed.max=180
