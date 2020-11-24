@@ -384,7 +384,7 @@ namespace HuLuMaoRemote_Key {
         let key_1,key_2;
         key_1=index;
         key_2=index1;
-        key_1=(key_1<<8)+key_2;
+        key_1=(key_1<<4)+key_2;
         pins.i2cWriteNumber(68, key_1, NumberFormat.UInt8LE);
         basic.pause(speed);
         num=pins.i2cReadNumber(68, NumberFormat.Int8LE);
