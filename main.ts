@@ -368,13 +368,27 @@ namespace HuLuMaoRemote_Key {
         }
         return temp;
     }
-
+    /**
+     * 获取当前按键值
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Key_Key block="获取当前按键值"
+    //% weight=99
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Key_get(): number {
+        let num;
+        basic.pause(10);
+        num=pins.i2cReadNumber(67, NumberFormat.Int8LE);
+        return num;
+    }
     /**
      * 判断组合按键是否按下
      * @param index
     */
     //% blockId=HuLuMaoRemote_Key_Key1 block="当按键|%index + 按键|%index1被按下,%speed"
-    //% weight=99
+    //% weight=98
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
