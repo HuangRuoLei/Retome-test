@@ -373,7 +373,7 @@ namespace HuLuMaoRemote_Key {
      * 判断组合按键是否按下
      * @param index
     */
-    //% blockId=HuLuMaoRemote_Key_Key1 block="当按键|%index被按下"
+    //% blockId=HuLuMaoRemote_Key_Key1 block="当按键|%index + 按键|%index1被按下,%speed"
     //% weight=99
     //% blockGap=10
     //% color="#35D482"
