@@ -369,6 +369,33 @@ namespace HuLuMaoRemote_Key {
         return temp;
     }
 
+    /**
+     * 判断组合按键是否按下
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Key_Key1 block="当按键|%index被按下"
+    //% weight=99
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Key1(index:key_number,index1:key_number,speed:number): boolean {
+        let temp: boolean = false;
+        let num;
+        let key_1,key_2;
+        key_1=index;
+        key_2=index1;
+        key_1=(key_1<<8)+key_2;
+        pins.i2cWriteNumber(68, key_1, NumberFormat.UInt8LE);
+        basic.pause(speed);
+        num=pins.i2cReadNumber(68, NumberFormat.Int8LE);
+        if(num==key_1){
+            temp=true;
+        }
+        else{
+            temp=false;
+        }
+        return temp;
+    }
      /**
      * 选择以调用延时函数
      * @param index
