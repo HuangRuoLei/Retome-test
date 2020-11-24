@@ -372,7 +372,7 @@ namespace HuLuMaoRemote_Key {
      * 获取当前按键值
      * @param index
     */
-    //% blockId=HuLuMaoRemote_Key_Key block="获取当前按键值"
+    //% blockId=HuLuMaoRemote_Key_Key_get block="获取当前按键值"
     //% weight=99
     //% blockGap=10
     //% color="#35D482"
