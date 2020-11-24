@@ -12,7 +12,7 @@ namespace HuLuMaoRemote_connection {
     export function con(): void {
         let length;
         for(let i=0;i<20;i++){
-            length=pins.i2cReadNumber(66, NumberFormat.Int8LE);
+            length=pins.i2cReadNumber(66, NumberFormat.UInt8LE);
             if(length==55){
                 basic.showIcon(IconNames.Yes);
                 basic.pause(1000);
@@ -48,7 +48,7 @@ namespace HuLuMaoRemote_connection {
         }
         while(data!=2){
             basic.pause(10);
-            data=pins.i2cReadNumber(75, NumberFormat.Int8LE);
+            data=pins.i2cReadNumber(75, NumberFormat.UInt8LE);
             basic.showIcon(IconNames.SmallSquare);
         }
         basic.showIcon(IconNames.Square);
@@ -127,7 +127,7 @@ namespace HuLuMaoRemote {
     export function Read_Chao_Sheng_Bo(): number {
         let length;
         basic.pause(10);
-        length=pins.i2cReadNumber(65, NumberFormat.Int8LE);
+        length=pins.i2cReadNumber(65, NumberFormat.UInt8LE);
         return length;
     }
     /**
@@ -264,6 +264,12 @@ namespace HuLuMaoRemote {
 //% color="#35D482" weight=28 icon="\uf11b" block="呼噜猫遥控器音乐类"
 namespace HuLuMaoRemote_music {
 
+    export enum OnOff{
+        //% blockId="jiang" block="将"
+        jiang,
+        //% blockId="guan" block="取消"
+        guan
+    }
     export enum yingdiao{
         //% blockId="low" block="低音"
         low = 1,
@@ -289,18 +295,22 @@ namespace HuLuMaoRemote_music {
      * 打开遥控器的七音符
      * @param index
     */
-    //% blockId=HuLuMaoRemote_music_music block="将1到7按键设置为七音符（哆来咪发索拉西）,音调为|%index"
+    //% blockId=HuLuMaoRemote_music_music block="|%index1 1到7按键设置为七音符（哆来咪发索拉西）,音调为|%index"
     //% weight=100
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function music(index:yingdiao): void {
+    export function music(index1:OnOff,index:yingdiao): void {
         basic.pause(10);
-        switch (index) {
-            case yingdiao.low: pins.i2cWriteNumber(64, 1, NumberFormat.UInt8LE); break;
-            case yingdiao.mid: pins.i2cWriteNumber(64, 2, NumberFormat.UInt8LE); break;
-            case yingdiao.high: pins.i2cWriteNumber(64, 3, NumberFormat.UInt8LE); break;
-        }   
+        switch(index1){
+            case OnOff.jiang:switch (index) {
+                case yingdiao.low: pins.i2cWriteNumber(64, 1, NumberFormat.UInt8LE); break;
+                case yingdiao.mid: pins.i2cWriteNumber(64, 2, NumberFormat.UInt8LE); break;
+                case yingdiao.high: pins.i2cWriteNumber(64, 3, NumberFormat.UInt8LE); break;
+            }break;
+            case OnOff.guan: pins.i2cWriteNumber(64, 4, NumberFormat.UInt8LE); break;
+        }
+           
     }
     /**
      * 播放指定歌曲，在歌曲播放结束之前，无法进行其它操作
@@ -359,7 +369,7 @@ namespace HuLuMaoRemote_Key {
         let temp: boolean = false;
         let num;
         basic.pause(10);
-        num=pins.i2cReadNumber(67, NumberFormat.Int8LE);
+        num=pins.i2cReadNumber(67, NumberFormat.UInt8LE);
         if(num==index){
             temp=true;
         }
@@ -380,19 +390,19 @@ namespace HuLuMaoRemote_Key {
     export function Key_get(): number {
         let num;
         basic.pause(10);
-        num=pins.i2cReadNumber(67, NumberFormat.Int8LE);
+        num=pins.i2cReadNumber(67, NumberFormat.UInt8LE);
         return num;
     }
     /**
-     * 判断组合按键是否按下
+     * 判断组合按键是否按下,若选择两个相同的按键则无效
      * @param index
     */
-    //% blockId=HuLuMaoRemote_Key_Key1 block="当按键|%index + 按键|%index1被按下,%speed"
+    //% blockId=HuLuMaoRemote_Key_Key1 block="当按键|%index + 按键|%index1被按下"
     //% weight=98
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function Key1(index:key_number,index1:key_number,speed:number): boolean {
+    export function Key1(index:key_number,index1:key_number): boolean {
         let temp: boolean = false;
         let num;
         let key_1,key_2;
@@ -400,8 +410,8 @@ namespace HuLuMaoRemote_Key {
         key_2=index1;
         key_1=(key_1<<4)+key_2;
         pins.i2cWriteNumber(68, key_1, NumberFormat.UInt8LE);
-        basic.pause(speed);
-        num=pins.i2cReadNumber(68, NumberFormat.Int8LE);
+        basic.pause(10);
+        num=pins.i2cReadNumber(68, NumberFormat.UInt8LE);
         if(num==key_1){
             temp=true;
         }
@@ -545,7 +555,7 @@ namespace HuLuMaoRemote_car {
     export function Car_Remote_CM(): number {
         let length;
         basic.pause(10);
-        length=pins.i2cReadNumber(76, NumberFormat.Int8LE);
+        length=pins.i2cReadNumber(76, NumberFormat.UInt8LE);
         return length;
     }
 }
