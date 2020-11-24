@@ -284,32 +284,7 @@ namespace HuLuMaoRemote_music {
         //% blockId="IfYouHere" block="名侦探柯南主题曲-如果有你在"
         IfYouHere
     }
-    export enum key_number{
-        //% blockId="_1" block="1"
-        _1=1,
-        //% blockId="_2" block="2"
-        _2,
-        //% blockId="_3" block="3"
-        _3,
-        //% blockId="_4" block="4"
-        _4,
-        //% blockId="_5" block="5"
-        _5,
-        //% blockId="_6" block="6"
-        _6,
-        //% blockId="_7" block="7"
-        _7,
-        //% blockId="_8" block="8"
-        _8,
-        //% blockId="_9" block="9"
-        _9,
-        //% blockId="_10" block="10"
-        _10,
-        //% blockId="_F1" block="F1"
-        _F1,
-        //% blockId="_F2" block="F2"
-        _F2
-    }
+    
     /**
      * 打开遥控器的七音符
      * @param index
@@ -341,12 +316,42 @@ namespace HuLuMaoRemote_music {
         pins.i2cWriteNumber(69, index, NumberFormat.UInt8LE);  
     }
 
+    
+}
+//% color="#35D482" weight=28 icon="\uf11b" block="呼噜猫遥控器按键与延时类"
+namespace HuLuMaoRemote_Key {
+    export enum key_number{
+        //% blockId="_1" block="1"
+        _1=1,
+        //% blockId="_2" block="2"
+        _2,
+        //% blockId="_3" block="3"
+        _3,
+        //% blockId="_4" block="4"
+        _4,
+        //% blockId="_5" block="5"
+        _5,
+        //% blockId="_6" block="6"
+        _6,
+        //% blockId="_7" block="7"
+        _7,
+        //% blockId="_8" block="8"
+        _8,
+        //% blockId="_9" block="9"
+        _9,
+        //% blockId="_10" block="10"
+        _10,
+        //% blockId="_F1" block="F1"
+        _F1,
+        //% blockId="_F2" block="F2"
+        _F2
+    }
      /**
      * 判断指定按键是否按下
      * @param index
     */
-    //% blockId=HuLuMaoRemote_music_Key block="当按键|%index被按下"
-    //% weight=98
+    //% blockId=HuLuMaoRemote_Key_Key block="当按键|%index被按下"
+    //% weight=100
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
@@ -363,8 +368,39 @@ namespace HuLuMaoRemote_music {
         }
         return temp;
     }
-}
 
+     /**
+     * 选择以调用延时函数
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Key_My_delayms block="延时(暂停,ms) %speed"
+    //% weight=97
+    //% blockGap=10
+     //% speed.min=0 speed.max=1000
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function My_delayms(speed:number):void {
+        basic.pause(speed);
+     }
+
+     /**
+     * 选择以调用延时函数
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Key_My_delays block="延时(暂停,s) %speed"
+    //% weight=96
+    //% blockGap=10
+     //% speed.min=0 speed.max=1000
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function My_delays(speed:number):void {
+        while(speed>0){
+            basic.pause(1000);
+            speed--;
+        }
+     }
+
+}
 //% color="#35D482" weight=27 icon="\uf11b" block="呼噜猫遥控器与小车通信类"
 namespace HuLuMaoRemote_car {
     export enum car{
