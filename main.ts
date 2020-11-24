@@ -265,9 +265,9 @@ namespace HuLuMaoRemote {
 namespace HuLuMaoRemote_music {
 
     export enum OnOff{
-        //% blockId="jiang" block="将"
+        //% blockId="jiang" block="设置"
         jiang,
-        //% blockId="guan" block="取消"
+        //% blockId="guan" block="不设置"
         guan
     }
     export enum yingdiao{
@@ -295,7 +295,7 @@ namespace HuLuMaoRemote_music {
      * 打开遥控器的七音符
      * @param index
     */
-    //% blockId=HuLuMaoRemote_music_music block="|%index1 1到7按键设置为七音符（哆来咪发索拉西）,音调为|%index"
+    //% blockId=HuLuMaoRemote_music_music block="1到7按键|%index1为七音符（哆来咪发索拉西）,音调为|%index"
     //% weight=100
     //% blockGap=10
     //% color="#35D482"
