@@ -377,7 +377,7 @@ namespace HuLuMaoRemote_Key {
     //% weight=97
     //% blockGap=10
      //% speed.min=0 speed.max=1000
-    //% color="#006400"
+    //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function My_delayms(speed:number):void {
         basic.pause(speed);
@@ -391,7 +391,7 @@ namespace HuLuMaoRemote_Key {
     //% weight=96
     //% blockGap=10
      //% speed.min=0 speed.max=1000
-    //% color="#006400"
+    //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function My_delays(speed:number):void {
         while(speed>0){
