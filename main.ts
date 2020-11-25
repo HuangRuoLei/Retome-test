@@ -141,7 +141,7 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Bodycheck():boolean {
         let temp: boolean = false;
-        if (pins.digitalReadPin(DigitalPin.P3) == 1) {
+        if (pins.digitalReadPin(DigitalPin.P1) == 1) {
             temp = true;
         }
         else {
@@ -160,7 +160,7 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Rain():boolean {
         let temp: boolean = false;
-        if (pins.digitalReadPin(DigitalPin.P3) == 1) {
+        if (pins.digitalReadPin(DigitalPin.P1) == 1) {
             temp = true;
         }
         else {
@@ -180,7 +180,7 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Gas():boolean {
         let temp: boolean = false;
-        if (pins.digitalReadPin(DigitalPin.P3) == 1) {
+        if (pins.digitalReadPin(DigitalPin.P1) == 1) {
             temp = true;
         }
         else {
@@ -200,7 +200,7 @@ namespace HuLuMaoRemote {
     export function heart():boolean {
         let temp: boolean = false;
         let temp1;
-        temp1 = pins.analogReadPin(AnalogPin.P3);
+        temp1 = pins.analogReadPin(AnalogPin.P1);
         temp1 = (temp1 * 2.89) / 1000;
         if (temp1 > 2) {
             temp = true;
@@ -221,7 +221,7 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Voice():boolean {
         let temp: boolean = false;
-        if (pins.digitalReadPin(DigitalPin.P3) == 0) {
+        if (pins.digitalReadPin(DigitalPin.P1) == 0) {
             temp = true;
         }
         else {
