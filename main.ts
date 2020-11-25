@@ -231,10 +231,10 @@ namespace HuLuMaoRemote {
     }
 
      /**
-     * 调用此将返回光敏电阻返回的亮度值（0代表最暗，333代表最亮）
+     * 调用此将返回光敏电阻返回的亮度值
      * @param index
     */
-    //% blockId=HuLuMaoRemote_Photoresistor block="读取光敏电阻测到的亮度(0代表最暗，333代表最亮)"
+    //% blockId=HuLuMaoRemote_Photoresistor block="读取光敏电阻测到的亮度，最高亮度值不超过1023"
     //% weight=80
     //% blockGap=10
     //% color="#35D482"
@@ -242,14 +242,14 @@ namespace HuLuMaoRemote {
     export function Photoresistor(): number {
         let data;
         data=pins.analogReadPin(AnalogPin.P2);
-        data=data*3.18/10;
+      //  data=data*3.18/10; 0代表最暗，333代表最亮
         return Math.round(data);
     }
     /**
-     * 调用此将返回热敏电阻返回的温度值（0代表最冷，333代表最热）
+     * 调用此将返回热敏电阻返回的热度值
      * @param index
     */
-    //% blockId=HuLuMaoRemote_Thermistor block="读取热敏电阻测到的热度(0代表最冷，333代表最热)"
+    //% blockId=HuLuMaoRemote_Thermistor block="读取热敏电阻测到的热度值，最高热度值不超过1023"
     //% weight=79
     //% blockGap=10
     //% color="#35D482"
@@ -257,7 +257,7 @@ namespace HuLuMaoRemote {
     export function Thermistor(): number {
         let data;
         data=pins.analogReadPin(AnalogPin.P2);
-        data=data*3.18/10;
+       // data=data*3.18/10;0代表最冷，333代表最热
         return Math.round(data);
     }
 }
