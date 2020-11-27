@@ -1,5 +1,12 @@
 //% color="#35D482" weight=30 icon="\uf11b" block="呼噜猫遥控器通信确认"
 namespace HuLuMaoRemote_connection {
+
+    export enum connet{
+        //% blockId="no" block="不建立"
+        no = 0,
+        //% blockId="yes" block="建立"
+        yes = 1
+    }
     /**
      * 调用此来建立MicroBit与遥控器的通信
      * @param index
@@ -35,31 +42,41 @@ namespace HuLuMaoRemote_connection {
      * 调用此来建立遥控器与小车的通信,并设置一个通信密码(最大为255)
      * @param index
     */
-    //% blockId=HuLuMaoRemote_connection_con1 block="建立遥控器与小车的通信,通信密码为|%index"
+    //% blockId=HuLuMaoRemote_connection_con1 block="小车与遥控器|%index1通信,通信密码为|%index"
     //% weight=99
     //% blockGap=10
     //% index.min=1 index.max=255
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function con1(index:number): void {
+    export function con1(index1:connet,index:number): void {
         let data=0;
-        for(let i=0;i<8;i++){
-            pins.i2cWriteNumber(75, index, NumberFormat.UInt8LE);
+        let aaa=0;
+        switch(index1){
+            case connet.yes:aaa=1;break;
+            case connet.no:aaa=2;break;
         }
-        while(data!=2){
-            basic.pause(10);
-            data=pins.i2cReadNumber(75, NumberFormat.UInt8LE);
-            basic.showIcon(IconNames.SmallSquare);
+        if(aaa==2){
+            pins.i2cWriteNumber(65, 1, NumberFormat.UInt8LE);
         }
-        basic.showIcon(IconNames.Square);
-        basic.pause(1000);
-        basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-                . . . . .
-        `);
+        else if(aaa==1){
+            for(let i=0;i<8;i++){
+                pins.i2cWriteNumber(75, index, NumberFormat.UInt8LE);
+            }
+            while(data!=2){
+                basic.pause(10);
+                data=pins.i2cReadNumber(75, NumberFormat.Int8LE);
+                basic.showIcon(IconNames.SmallSquare);
+            }
+            basic.showIcon(IconNames.Square);
+            basic.pause(1000);
+            basic.showLeds(`
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+                    . . . . .
+            `);
+        }
     }
 }
 
