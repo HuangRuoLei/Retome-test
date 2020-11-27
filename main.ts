@@ -160,7 +160,7 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Rain():boolean {
         let temp: boolean = false;
-        if (pins.digitalReadPin(DigitalPin.P1) == 1) {
+        if (pins.digitalReadPin(DigitalPin.P1) == 0) {
             temp = true;
         }
         else {
