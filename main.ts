@@ -42,7 +42,7 @@ namespace HuLuMaoRemote_connection {
      * 调用此来建立遥控器与小车的通信,并设置一个通信密码(最大为255)
      * @param index
     */
-    //% blockId=HuLuMaoRemote_connection_con1 block="小车与遥控器|%index1通信,通信密码为|%index"
+    //% blockId=HuLuMaoRemote_connection_con1 block="遥控器 与小车|%index1通信,通信密码为|%index"
     //% weight=99
     //% blockGap=10
     //% index.min=1 index.max=255
@@ -238,7 +238,7 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Voice():boolean {
         let temp: boolean = false;
-        if (pins.digitalReadPin(DigitalPin.P1) == 0) {
+        if (pins.digitalReadPin(DigitalPin.P1) == 1) {
             temp = true;
         }
         else {
