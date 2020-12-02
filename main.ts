@@ -147,6 +147,23 @@ namespace HuLuMaoRemote {
         length=pins.i2cReadNumber(65, NumberFormat.UInt8LE);
         return length;
     }
+
+    /**
+     * 调用此将返回火焰传感器测到的火焰数据,数据越小,离火焰越近
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Flame block="读取火焰传感器返回的数据"
+    //% weight=110
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Flame():number {
+        let length;
+        basic.pause(10);
+        length = pins.analogReadPin(AnalogPin.P1);
+        return length;
+    }
+
     /**
      * 选择以打开遥控器人体红外传感器功能
      * @param index
