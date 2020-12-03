@@ -175,12 +175,20 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Bodycheck():boolean {
         let temp: boolean = false;
-        if (pins.digitalReadPin(DigitalPin.P1) == 1) {
+        let data;
+        data=pins.analogReadPin(AnalogPin.P1);
+        if(data>500){
             temp = true;
         }
-        else {
-            temp = false;
+        else{
+            temp=false;
         }
+        /*    if (pins.digitalReadPin(DigitalPin.P1) == 1) {
+                 temp = true;
+             }
+            else {
+                temp = false;
+             }*/
         return temp;
     }
     /**
@@ -194,12 +202,21 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Rain():boolean {
         let temp: boolean = false;
+        let data;
+        data=pins.analogReadPin(AnalogPin.P1);
+        if(data<500){
+            temp = true;
+        }
+        else{
+            temp=false;
+        }
+        /*
         if (pins.digitalReadPin(DigitalPin.P1) == 0) {
             temp = true;
         }
         else {
             temp = false;
-        }
+        }*/
         return temp;
     }
 
@@ -214,12 +231,21 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Gas():boolean {
         let temp: boolean = false;
+        let data;
+        data=pins.analogReadPin(AnalogPin.P1);
+        if(data<500){
+            temp = true;
+        }
+        else{
+            temp=false;
+        }
+        /*
         if (pins.digitalReadPin(DigitalPin.P1) == 0) {
             temp = true;
         }
         else {
             temp = false;
-        }
+        }*/
         return temp;
     }
     /**
@@ -255,12 +281,21 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Voice():boolean {
         let temp: boolean = false;
+        let data;
+        data=pins.analogReadPin(AnalogPin.P1);
+        if(data>500){
+            temp = true;
+        }
+        else{
+            temp=false;
+        }
+        /*
         if (pins.digitalReadPin(DigitalPin.P1) == 1) {
             temp = true;
         }
         else {
             temp = false;
-        }
+        }*/
         return temp;
     }
 
