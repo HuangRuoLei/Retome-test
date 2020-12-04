@@ -425,6 +425,44 @@ namespace HuLuMaoRemote_Key {
         //% blockId="_F2" block="F2"
         _F2
     }
+    export enum key_number1111{
+        //% blockId="P1" block="P1"
+        P1=0,
+        //% blockId="P13" block="P13"
+        P13=1,
+        //% blockId="P14" block="P14"
+        P14=2,
+        //% blockId="P15" block="P15"
+        P15=3
+    }
+
+    /**
+     * 判断指定按键是否按下
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_Key_Key1111 block="当按键|%index被按下"
+    //% weight=101
+    //% blockGap=10
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Key1111(index:key_number1111): boolean {
+        let temp: boolean = false;
+        let num;
+        basic.pause(10);
+        switch(index){
+            case key_number1111.P1:num=input.pinIsPressed(TouchPin.P1);break;
+            case key_number1111.P13:num=input.pinIsPressed(TouchPin.P13);break;
+            case key_number1111.P14:num=input.pinIsPressed(TouchPin.P14);break;
+            case key_number1111.P15:num=input.pinIsPressed(TouchPin.P15);break;
+        }
+        if(num==0){
+            temp=true;
+        }
+        else{
+            temp=false;
+        }
+        return temp;
+    }
      /**
      * 判断指定按键是否按下
      * @param index
