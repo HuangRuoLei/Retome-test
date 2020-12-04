@@ -433,7 +433,7 @@ namespace HuLuMaoRemote_Key {
         //% blockId="_P14" block="P14"
         _P14,
         //% blockId="_P15" block="P15"
-        _P15=
+        _P15
     }
 
     /**
@@ -451,9 +451,9 @@ namespace HuLuMaoRemote_Key {
         basic.pause(10);
         switch(index){
             case key_number1111._P1:num=input.pinIsPressed(TouchPin.P1);break;
-         /*   case key_number1111._P13:num=input.pinIsPressed(TouchPin.P13);break;
+            case key_number1111._P13:num=input.pinIsPressed(TouchPin.P13);break;
             case key_number1111._P14:num=input.pinIsPressed(TouchPin.P14);break;
-            case key_number1111._P15:num=input.pinIsPressed(TouchPin.P15);break;*/
+            case key_number1111._P15:num=input.pinIsPressed(TouchPin.P15);break;
         }
         if(num==0){
             temp=true;
