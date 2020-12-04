@@ -426,21 +426,21 @@ namespace HuLuMaoRemote_Key {
         _F2
     }
     export enum key_number1111{
-        //% blockId="P1" block="P1"
-        P1=0,
-        //% blockId="P13" block="P13"
-        P13=1,
-        //% blockId="P14" block="P14"
-        P14=2,
-        //% blockId="P15" block="P15"
-        P15=3
+        //% blockId="_P1" block="P1"
+        _P1=0,
+        //% blockId="_P13" block="P13"
+        _P13,
+        //% blockId="_P14" block="P14"
+        _P14,
+        //% blockId="_P15" block="P15"
+        _P15=
     }
 
     /**
-     * 判断指定按键是否按下
+     * 判断
      * @param index
     */
-    //% blockId=HuLuMaoRemote_Key_Key1111 block="当按键|%index被按下"
+    //% blockId=HuLuMaoRemote_Key_Key1111 block="当按钮|%index被按下"
     //% weight=101
     //% blockGap=10
     //% color="#35D482"
@@ -450,10 +450,10 @@ namespace HuLuMaoRemote_Key {
         let num;
         basic.pause(10);
         switch(index){
-            case key_number1111.P1:num=input.pinIsPressed(TouchPin.P1);break;
-            case key_number1111.P13:num=input.pinIsPressed(TouchPin.P13);break;
-            case key_number1111.P14:num=input.pinIsPressed(TouchPin.P14);break;
-            case key_number1111.P15:num=input.pinIsPressed(TouchPin.P15);break;
+            case key_number1111._P1:num=input.pinIsPressed(TouchPin.P1);break;
+            case key_number1111._P13:num=input.pinIsPressed(TouchPin.P13);break;
+            case key_number1111._P14:num=input.pinIsPressed(TouchPin.P14);break;
+            case key_number1111._P15:num=input.pinIsPressed(TouchPin.P15);break;
         }
         if(num==0){
             temp=true;
