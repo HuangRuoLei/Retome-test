@@ -137,7 +137,7 @@ namespace HuLuMaoRemote {
      * @param index
     */
     //% blockId=HuLuMaoRemote_Read_Chao_Sheng_Bo block="读取超声波测到的距离(cm)"
-    //% weight=109
+    //% weight=110
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
@@ -153,7 +153,7 @@ namespace HuLuMaoRemote {
      * @param index
     */
     //% blockId=HuLuMaoRemote_Flame block="读取火焰传感器返回的数据"
-    //% weight=110
+    //% weight=109
     //% blockGap=10
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
@@ -175,6 +175,13 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Bodycheck():boolean {
         let temp: boolean = false;
+        if(input.pinIsPressed(TouchPin.P1)==1){
+            temp=true;
+        }
+        else{
+            temp=false;
+        }
+        /*
         let data;
         data=pins.analogReadPin(AnalogPin.P1);
         if(data>500){
@@ -183,6 +190,7 @@ namespace HuLuMaoRemote {
         else{
             temp=false;
         }
+        */
         /*    if (pins.digitalReadPin(DigitalPin.P1) == 1) {
                  temp = true;
              }
@@ -202,6 +210,13 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Rain():boolean {
         let temp: boolean = false;
+        if(input.pinIsPressed(TouchPin.P1)==0){
+            temp=true;
+        }
+        else{
+            temp=false;
+        }
+        /*
         let data;
         data=pins.analogReadPin(AnalogPin.P1);
         if(data<500){
@@ -209,7 +224,7 @@ namespace HuLuMaoRemote {
         }
         else{
             temp=false;
-        }
+        }*/
         /*
         if (pins.digitalReadPin(DigitalPin.P1) == 0) {
             temp = true;
@@ -231,6 +246,13 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Gas():boolean {
         let temp: boolean = false;
+        if(input.pinIsPressed(TouchPin.P1)==0){
+            temp=true;
+        }
+        else{
+            temp=false;
+        }
+        /*
         let data;
         data=pins.analogReadPin(AnalogPin.P1);
         if(data<500){
@@ -238,7 +260,7 @@ namespace HuLuMaoRemote {
         }
         else{
             temp=false;
-        }
+        }*/
         /*
         if (pins.digitalReadPin(DigitalPin.P1) == 0) {
             temp = true;
@@ -281,6 +303,13 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Voice():boolean {
         let temp: boolean = false;
+        if(input.pinIsPressed(TouchPin.P1)==1){
+            temp=true;
+        }
+        else{
+            temp=false;
+        }
+        /*
         let data;
         data=pins.analogReadPin(AnalogPin.P1);
         if(data>500){
@@ -288,7 +317,7 @@ namespace HuLuMaoRemote {
         }
         else{
             temp=false;
-        }
+        } */
         /*
         if (pins.digitalReadPin(DigitalPin.P1) == 1) {
             temp = true;
@@ -424,45 +453,6 @@ namespace HuLuMaoRemote_Key {
         _F1,
         //% blockId="_F2" block="F2"
         _F2
-    }
-    export enum key_number1111{
-        //% blockId="_P1" block="P1"
-        _P1=0,
-        //% blockId="_P13" block="P13"
-        _P13,
-        //% blockId="_P14" block="P14"
-        _P14,
-        //% blockId="_P15" block="P15"
-        _P15
-    }
-
-    /**
-     * 判断
-     * @param index
-    */
-    //% blockId=HuLuMaoRemote_Key_Key1111 block="当按钮|%index被按下"
-    //% weight=101
-    //% blockGap=10
-    //% color="#35D482"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function Key1111(index:key_number1111): boolean {
-        let temp: boolean = false;
-        let num;
-        basic.pause(10);
-        switch(index){
-            case key_number1111._P1:num=input.pinIsPressed(TouchPin.P1);break;
-         /*   case key_number1111._P13:num=input.pinIsPressed(TouchPin.P13);break;
-            case key_number1111._P14:num=input.pinIsPressed(TouchPin.P14);break;
-            case key_number1111._P15:num=input.pinIsPressed(TouchPin.P15);break; */
-            default:num=1;break;
-        }
-        if(num==0){
-            temp=true;
-        }
-        else{
-            temp=false;
-        }
-        return temp;
     }
      /**
      * 判断指定按键是否按下
