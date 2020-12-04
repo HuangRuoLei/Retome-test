@@ -175,7 +175,7 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Bodycheck():boolean {
         let temp: boolean = false;
-        if(input.pinIsPressed(TouchPin.P1)==1){
+        if(input.pinIsPressed(TouchPin.P1)){
             temp=true;
         }
         else{
@@ -210,11 +210,11 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Rain():boolean {
         let temp: boolean = false;
-        if(input.pinIsPressed(TouchPin.P1)==0){
-            temp=true;
+        if(input.pinIsPressed(TouchPin.P1)){
+            temp=false;
         }
         else{
-            temp=false;
+            temp=true;
         }
         /*
         let data;
@@ -246,11 +246,11 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Gas():boolean {
         let temp: boolean = false;
-        if(input.pinIsPressed(TouchPin.P1)==0){
-            temp=true;
+        if(input.pinIsPressed(TouchPin.P1)){
+            temp=false;
         }
         else{
-            temp=false;
+            temp=true;
         }
         /*
         let data;
@@ -303,7 +303,7 @@ namespace HuLuMaoRemote {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function Voice():boolean {
         let temp: boolean = false;
-        if(input.pinIsPressed(TouchPin.P1)==1){
+        if(input.pinIsPressed(TouchPin.P1)){
             temp=true;
         }
         else{
