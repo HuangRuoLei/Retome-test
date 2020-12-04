@@ -451,9 +451,10 @@ namespace HuLuMaoRemote_Key {
         basic.pause(10);
         switch(index){
             case key_number1111._P1:num=input.pinIsPressed(TouchPin.P1);break;
-            case key_number1111._P13:num=input.pinIsPressed(TouchPin.P13);break;
+         /*   case key_number1111._P13:num=input.pinIsPressed(TouchPin.P13);break;
             case key_number1111._P14:num=input.pinIsPressed(TouchPin.P14);break;
-            case key_number1111._P15:num=input.pinIsPressed(TouchPin.P15);break;
+            case key_number1111._P15:num=input.pinIsPressed(TouchPin.P15);break; */
+            default:num=1;break;
         }
         if(num==0){
             temp=true;
