@@ -176,10 +176,10 @@ namespace HuLuMaoRemote {
     export function Bodycheck():boolean {
         let temp: boolean = false;
         if(input.pinIsPressed(TouchPin.P1)){
-            temp=true;
+            temp=false;
         }
         else{
-            temp=false;
+            temp=true;
         }
         /*
         let data;
@@ -211,10 +211,10 @@ namespace HuLuMaoRemote {
     export function Rain():boolean {
         let temp: boolean = false;
         if(input.pinIsPressed(TouchPin.P1)){
-            temp=false;
+            temp=true;
         }
         else{
-            temp=true;
+            temp=false;
         }
         /*
         let data;
@@ -247,10 +247,10 @@ namespace HuLuMaoRemote {
     export function Gas():boolean {
         let temp: boolean = false;
         if(input.pinIsPressed(TouchPin.P1)){
-            temp=false;
+            temp=true;
         }
         else{
-            temp=true;
+            temp=false;
         }
         /*
         let data;
@@ -304,10 +304,10 @@ namespace HuLuMaoRemote {
     export function Voice():boolean {
         let temp: boolean = false;
         if(input.pinIsPressed(TouchPin.P1)){
-            temp=true;
+            temp=false;
         }
         else{
-            temp=false;
+            temp=true;
         }
         /*
         let data;
