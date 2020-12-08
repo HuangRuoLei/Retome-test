@@ -19,7 +19,7 @@ namespace HuLuMaoRemote_connection {
     export function con(): void {
         let length;
         let length1;
-        for(let i=0;i<2000;i++){
+        for(let i=0;i<2;i++){
             basic.pause(10);
             length1=pins.i2cReadNumber(64, NumberFormat.UInt8LE);
             if(length1==44){
