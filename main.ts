@@ -687,4 +687,18 @@ namespace HuLuMaoRemote_car {
         length=pins.i2cReadNumber(77, NumberFormat.UInt8LE);
         return length;
     }
+    /**
+     * 调用此将向小车发送数字（200~255）
+     * @param index
+    */
+    //% blockId=HuLuMaoRemote_car_Car_Remote_CM2 block="向小车发送数字|%index"
+    //% weight=96
+    //% blockGap=10
+    //% index.min=200 index.max=255
+    //% color="#35D482"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function Car_Remote_CM2(index:number): number {
+        basic.pause(10);
+        pins.i2cWriteNumber(76, index, NumberFormat.UInt8LE);
+    }
 }
