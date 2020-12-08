@@ -19,6 +19,12 @@ namespace HuLuMaoRemote_connection {
     export function con(): void {
         let length;
         for(let i=0;i<20;i++){
+            length=pins.i2cReadNumber(64, NumberFormat.UInt8LE);
+            if(length==55){
+                break;
+            }
+        }
+        for(let i=0;i<20;i++){
             length=pins.i2cReadNumber(66, NumberFormat.UInt8LE);
             if(length==55){
                 basic.showIcon(IconNames.Yes);
