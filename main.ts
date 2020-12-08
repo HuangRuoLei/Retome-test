@@ -20,12 +20,14 @@ namespace HuLuMaoRemote_connection {
         let length;
         let length1;
         for(let i=0;i<2000;i++){
+            basic.pause(10);
             length1=pins.i2cReadNumber(64, NumberFormat.UInt8LE);
             if(length1==44){
                 break;
             }
         }
         for(let i=0;i<20;i++){
+            basic.pause(10);
             length=pins.i2cReadNumber(66, NumberFormat.UInt8LE);
             if(length==55){
                 basic.showIcon(IconNames.Yes);
