@@ -697,7 +697,7 @@ namespace HuLuMaoRemote_car {
     //% index.min=200 index.max=255
     //% color="#35D482"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function Car_Remote_CM2(index:number): number {
+    export function Car_Remote_CM2(index:number): void {
         basic.pause(10);
         pins.i2cWriteNumber(76, index, NumberFormat.UInt8LE);
     }
